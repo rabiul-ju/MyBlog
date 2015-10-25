@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+
+{%load staticfiles%}
+
+<html class="no-js"> <!--<![endif]-->
+    <head>
+
+        <!-- meta -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Blog Of vaindream</title>
+        
+        <!-- stylesheets -->
+        {% block css%}
+        <link rel="stylesheet" href="{% static  'assets/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+        {% endblock %}
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="{% static 'assets/img/logo.png' %}" alt="Site Logo">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">Home</span></a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div><!-- end of /.navbar-collapse -->
+            </div><!-- end of /.container -->
+        </nav>
+
+        <main>
+            <div class="container">
+                <div class="row">
+
+                    <!-- blog-contents -->
+
+                    <section class="col-md-8">
+                        {% block blog  %}
+                        <article class="blog-item">
+                            <div class="row">
+
+                                <div class="col-md-9">
+
+                                   <!--<h3> {{blog.title}} </h3>-->
+                                    <!--<p>{{blog.body}} </p>-->
+
+                                </div>
+
+                            </div>
+
+                        </article> <!-- /.blog-item -->
+                        {% endblock %}
+
+
+                        
+
+                        <div class="page-turn">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3 text-center">
+                                    <nav>
+                                        <ul class="pagination pagination-sm">
+                                            <li class="disabled">
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">Prev</span>
+                                                </a>
+                                            </li>
+                                            <li class="active"><a href="index.html">1</a></li>
+                                            <li><a href="page2.html">2</a></li>
+                                            <li><a href="page3.html">3</a></li>
+                                            <li><a href="page4.html">4</a></li>
+                                            <li><a href="page5.html">5</a></li>
+                                            <li>
+                                                <a href="page6.html" aria-label="Next">
+                                                    <span aria-hidden="true">Next</span>
+                                                </a>
+                                            </li>
+                                        </ul> <!-- /.pagination -->
+                                    </nav>
+                                </div>
+                            </div>
+                        </div> <!-- /.page-turn -->
+
+                    </section>
+                    <!-- end of blog-contents -->
+
+                    <!-- sidebar -->
+                    <!-- end of sidebar -->
+
+                </div>
+            </div> <!-- end of /.container -->
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <!-- copyright -->
+                    <div class="col-md-4 col-sm-4">
+                        copyright &copy; 2015 <a href="#" style="margin-left: 4px;">Your website Link</a>
+                        <br>
+                        Theme by <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+                    </div>
+
+                    <!-- footer share button -->
+                    <div class="col-md-4 col-sm-4">
+                        <ul class="social-share text-center">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul> <!-- /.social-share -->
+                    </div>
+
+                    <!-- footer-nav -->
+                    <div class="col-md-4 col-sm-4">
+                        <ul class="footer-nav">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul> <!-- /.footer-nav -->
+                    </div> 
+                </div>
+            </div>
+        </footer>
+
+        <!--  Necessary scripts  -->
+{% block script%}
+        <script type="text/javascript" src="{{STATIC_URL}}assets/js/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{{STATIC_URL}}assets/js/jQuery.scrollSpeed.js"></script>
+        <script>tinymce.init({selector: 'textarea'});</script>
+
+
+        <!-- smooth-scroll -->
+
+        <script>
+        $(function() {  
+            jQuery.scrollSpeed(100, 1000);
+        });
+        </script>
+{% endblock %}
+    </body>
+</html>
